@@ -49,30 +49,34 @@ p{margin:0}
 .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
 
 /* ---------- Header ---------- */
-.top{padding-block:18px 0;position:relative;z-index:2}
+.top{position:absolute;top:0;left:0;right:0;z-index:3;padding-top:calc(14px + env(safe-area-inset-top, 0px));padding-bottom:0}
 .top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo{flex-direction:column;align-items:flex-start;gap:4px}
-.logo img{height:38px;width:auto;display:block}
-.logo-loc{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--yellow);padding-left:2px}
+.logo img{height:26px;width:auto;display:block}
+@media (min-width:820px){.logo img{height:34px}}
+.logo-loc{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--yellow);padding-left:2px}
 .logo-text{font-weight:700;font-size:.66rem;line-height:1.08;letter-spacing:.02em;text-transform:uppercase}
 .logo-text b{display:block;font-size:1.05rem;letter-spacing:.04em;margin-top:2px}
-.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;padding:7px 12px;border:1px solid var(--line-on-ink);border-radius:999px;color:var(--muted-on-ink);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.live{justify-self:start;font-size:.78rem!important;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;padding:7px 12px;border:1px solid var(--line-on-ink);border-radius:999px;color:var(--muted-on-ink);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex:none}
 .live.now i{background:var(--red);box-shadow:0 0 0 0 rgba(226,35,26,.7);animation:pulse 1.8s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(226,35,26,0)}100%{box-shadow:0 0 0 0 rgba(226,35,26,0)}}
 
 /* ---------- Hero ---------- */
-.hero{padding-block:36px 44px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(20,20,22,.6) 0%,rgba(20,20,22,.86) 55%,var(--ink) 100%),url(img/worship.webp) 60% 20%/cover no-repeat}
+.hero{padding-block:88px 36px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(20,20,22,.6) 0%,rgba(20,20,22,.86) 55%,var(--ink) 100%),url(img/worship.webp) 60% 20%/cover no-repeat}
 @media (min-width:820px){.hero{background:linear-gradient(90deg,var(--ink) 0%,rgba(20,20,22,.82) 36%,rgba(20,20,22,.2) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 30%),url(img/worship.webp) right 25%/cover no-repeat}}
-.hero-grid{display:grid;gap:28px}
+.hero-grid{display:grid;gap:24px}
+.hero-head{display:grid;gap:16px;justify-items:start}
 .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.5rem, 11.5vw, 5.6rem);line-height:.92;letter-spacing:-.01em;word-spacing:.06em}
 .hero h1 .y{color:var(--yellow);display:block}
 .hero h1 .nw{white-space:nowrap}
 .hero-copy{display:grid;gap:14px;max-width:34rem;align-content:end}
 .hero-copy p{color:#d9dae0;font-size:1.04rem}
 .hero-copy p strong{color:var(--white);font-weight:700}
-.paths{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.paths .btn{justify-content:center;padding:14px 10px;font-size:.9rem}
+@media (min-width:820px){.paths{display:flex;flex-wrap:wrap}.paths .btn{padding:14px 18px;font-size:.95rem}}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;text-decoration:none;padding:14px 18px;border-radius:4px;transition:transform .15s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn svg{width:16px;height:16px;flex:none}
@@ -83,7 +87,7 @@ p{margin:0}
 .blocks span:nth-child(2){background:var(--yellow)}
 .blocks span:nth-child(3){background:var(--blue)}
 @media (min-width:820px){
-  .hero{padding-block:56px 56px}
+  .hero{padding-block:120px 56px}
   .hero-grid{grid-template-columns:1.5fr 1fr;align-items:end}
 }
 
@@ -153,7 +157,7 @@ p{margin:0}
 .letter::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--red) 0 33%,var(--ink) 33% 66%,var(--blue) 66%);border-radius:6px 0 0 6px}
 .letter .from{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 10%;background:var(--paper);border:3px solid var(--yellow);box-shadow:0 0 0 1px var(--line-on-paper);flex:none}
-.from small{display:block;font-family:var(--mono);font-size:.74rem;color:var(--muted-on-paper);letter-spacing:.06em}
+.from small{display:block;font-family:var(--mono);font-size:.8rem;color:var(--muted-on-paper);letter-spacing:.06em}
 .from strong{font-size:1rem}
 .letter h3{font-family:var(--display);font-weight:600;font-size:1.7rem;line-height:1.08;letter-spacing:0;word-spacing:.05em;margin-bottom:14px}
 .letter p{max-width:62ch;margin-bottom:12px;color:#2a2b31}
@@ -173,7 +177,7 @@ p{margin:0}
 .play .disc svg{width:20px;height:20px;position:relative;z-index:1}
 .play:hover .disc{animation:spin 2.4s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.play small{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.play small{display:block;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
 .play strong{display:block;font-family:var(--display);font-weight:600;font-size:1.4rem;line-height:1.1;margin-top:2px}
 .play span.l{display:block;font-size:.88rem;margin-top:4px;opacity:.9}
 .play .arr{width:22px;height:22px}
@@ -213,6 +217,8 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 .dock a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 10px;border-radius:4px;font-weight:700;font-size:.92rem;text-decoration:none}
 .dock .d1{background:var(--white);color:var(--ink)}
 .dock .d2{background:var(--red);color:var(--white)}
+.dock{transform:translateY(110%);transition:transform .25s ease}
+.dock.show{transform:none}
 @media (min-width:820px){.dock{display:none}}
 
 /* Pending link marker (removed automatically once a URL is filled in LINKS) */
@@ -224,7 +230,7 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 @media (max-width:419px){
   .tile{padding:16px 14px;min-height:160px;gap:18px}
   .tile h3{font-size:1.18rem}
-  .tile .k{font-size:.66rem;letter-spacing:.1em}
+  .tile .k{font-size:.76rem;letter-spacing:.06em}
   .tile .go{font-size:.82rem}
   .t-fol h3{font-size:2rem}
   .t-give h3{font-size:1.4rem}
@@ -266,7 +272,6 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
       <img src="img/gccc-logo.png" alt="Glory Centre Community Church" width="640" height="158">
       <span class="logo-loc">Ojodu</span>
     </a>
-    <span class="live" id="live" aria-live="polite"><i></i><span id="live-text">Sunday Service · 8:00am</span></span>
   </div>
 </header>
 
@@ -275,7 +280,10 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
-        <h1><span class="nw">Welcome to</span> <span class="y">Church!</span></h1>
+        <div class="hero-head">
+          <span class="live" id="live" aria-live="polite"><i></i><span id="live-text">Sunday Service · 8:00am</span></span>
+          <h1><span class="nw">Welcome to</span> <span class="y">Church!</span></h1>
+        </div>
         <div class="hero-copy">
           <p><strong>Your experience with God doesn’t end here.</strong> There’s so much more to explore, experience and be a part of.</p>
           <p>Take the next step, find your community, grow in faith, and stay connected with us.</p>
@@ -567,6 +575,12 @@ order.forEach(d => {
   const when = best.off === 0 ? "Today" : best.off === 1 ? "Tomorrow" : DAYNAMES[best.d];
   txt.textContent = "Next: " + best.e.name.replace("Glory Realms ", "") + " · " + when + " " + fmt(best.e.start);
 })();
+
+/* Show the bottom bar only once the hero buttons have scrolled away */
+(function(){const dock=document.querySelector(".dock"),paths=document.querySelector(".paths");
+ if(!dock||!paths)return;
+ if(!("IntersectionObserver" in window)){dock.classList.add("show");return;}
+ new IntersectionObserver(([e])=>dock.classList.toggle("show",!e.isIntersecting&&e.boundingClientRect.top<0)).observe(paths);})();
 </script>
 </body>
 </html>
