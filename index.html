@@ -102,36 +102,58 @@ p{margin:0}
 .sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,6.4vw,3.2rem);line-height:1;letter-spacing:-.005em;word-spacing:.06em}
 .sec-head p{color:var(--muted-on-ink)}
 
-/* ---------- Next steps bento ---------- */
-.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:180px;padding:18px;text-decoration:none;border-radius:6px;overflow:hidden;transition:transform .18s ease}
+/* ---------- Next steps, grouped ---------- */
+.groups{display:flex;flex-direction:column;gap:30px}
+.pair{display:flex;flex-direction:column;gap:30px}
+.grp{display:flex;flex-direction:column;gap:12px;min-width:0}
+.grp-head{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--mono);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+.grp-head::after{content:"";flex:1;height:1px;background:var(--line-on-ink)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.full{grid-column:1 / -1}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:180px;padding:18px;text-decoration:none;border-radius:6px;overflow:hidden;transition:transform .18s ease}
 .tile:hover{transform:translateY(-3px)}
-.tile .k{display:block;line-height:1.35;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.tile h3{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.05;letter-spacing:0;word-spacing:.05em;margin-top:8px}
-.tile p{font-size:.9rem;margin-top:8px;opacity:.92;max-width:28ch}
-.tile .go{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:.88rem;padding-top:12px;border-top:1px solid color-mix(in srgb,currentColor 24%,transparent)}
-.tile .go svg{width:18px;height:18px;flex:none;transition:transform .18s ease}
-.tile:hover .go svg{transform:translateX(4px)}
+.tile .k{display:block;line-height:1.35;font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.tile h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.08;word-spacing:.05em;margin-top:6px}
+.tile p{font-size:.9rem;line-height:1.45;margin-top:6px;opacity:.92;max-width:34ch}
+.tile .ico{width:30px;height:30px;display:block;margin-bottom:4px}
+.tile .go{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:.86rem;padding-top:10px;border-top:1px solid color-mix(in srgb,currentColor 22%,transparent)}
+.tile .go svg,.tile .arrow{width:18px;height:18px;flex:none;transition:transform .18s ease}
+.tile:hover .go svg,.tile:hover .arrow{transform:translateX(4px)}
+.tile.tile-row{flex-direction:row;align-items:center;min-height:0;gap:14px}
+.tile-row .arrow{width:22px;height:22px}
+.tile-row .go-txt{display:none}
 .t-red{background:var(--red);color:var(--white)}
 .t-blue{background:var(--blue);color:var(--white)}
 .t-paper{background:var(--paper);color:var(--ink)}
 .t-yellow{background:var(--yellow);color:var(--ink)}
 .t-ink{background:var(--ink-2);color:var(--white);border:1px solid var(--line-on-ink)}
-.t-wide{grid-column:span 2}
-.t-fol{min-height:240px;background:var(--yellow);color:var(--ink)}
-.t-fol h3{font-size:clamp(2.2rem,8vw,3.3rem);letter-spacing:-.01em;word-spacing:.06em}
-.t-fol .grace{font-family:var(--hand);font-size:2rem;line-height:1;color:var(--red);margin-top:6px}
-.t-fol .tag{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.12em;background:var(--ink);color:var(--yellow);padding:5px 8px;border-radius:3px}
-.t-give h3{font-size:clamp(1.4rem,6.2vw,2.6rem);letter-spacing:-.005em;word-spacing:.06em}
+.t-give{min-height:0;padding:20px 16px;gap:16px}
+.tile.t-give h3{font-size:clamp(1.55rem,6.6vw,2.6rem);line-height:1.04}
+.t-give .wave-deco{position:absolute;right:-8px;top:10px;width:84px;height:auto;opacity:.16;pointer-events:none}
+.t-fol{min-height:250px;background:var(--yellow);color:var(--ink)}
+.tile.t-fol h3{font-size:clamp(1.6rem,7.2vw,3.4rem);line-height:.98}
+.t-fol .grace{font-family:var(--hand);font-size:clamp(1.45rem,6.2vw,2.1rem);line-height:1;color:var(--red);margin-top:4px}
 .t-aaac{background:var(--ink-2);color:var(--white);border:1px solid var(--line-on-ink)}
-.t-aaac h3 span{color:var(--yellow)}
-.wave-deco{position:absolute;right:-8px;bottom:58px;width:130px;height:auto;opacity:.22;pointer-events:none}
+.tile.t-aaac h3{font-size:clamp(1.6rem,7.2vw,2.4rem)}
 @media (min-width:820px){
-  .bento{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-  .tile{min-height:210px;padding:22px}
-  .t-fol{grid-column:span 2;grid-row:span 2}
-  .t-give{grid-column:span 2}
-  .t-wide-lg{grid-column:span 2}
+  .groups{gap:40px}
+  .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .cards{gap:12px}
+  .cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cards-3 .t-fol{grid-column:span 2}
+  .tile{min-height:200px;padding:22px}
+  .tile h3{font-size:1.5rem}
+  .t-give{flex-direction:row;align-items:flex-end;justify-content:space-between;min-height:170px;padding:26px 24px}
+  .t-give .wave-deco{right:240px;top:24px;width:150px}
+  .t-give .go{border:1px solid rgba(255,255,255,.5);border-radius:4px;padding:12px 18px;flex:none;font-size:.95rem}
+  .t-fol,.t-aaac{min-height:300px}
+  .tile.tile-row{min-height:0;padding:24px}
+  .pair .grp{height:100%}
+  .pair .cards{flex:1;grid-template-rows:auto 1fr}
+  .tile.t-give h3{font-size:2.4rem}
+  .tile.t-fol h3{font-size:3.2rem}
+  .tile-row .go-txt{display:inline}
+  .t-grm .go-wrap{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;flex:none}
 }
 
 /* ---------- Weekly rhythm ---------- */
@@ -231,24 +253,17 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 [data-pending="true"]{cursor:default}
 
 /* ---------- Small phones ---------- */
-.t-fol .k{display:block}
-.t-fol .grace{font-size:clamp(1.5rem,6.5vw,2rem)}
 @media (max-width:419px){
-  .tile{padding:16px 14px;min-height:160px;gap:18px}
-  .tile h3{font-size:1.18rem}
-  .tile .k{font-size:.76rem;letter-spacing:.06em}
+  .tile{padding:16px 14px;min-height:160px;gap:16px}
+  .tile h3{font-size:1.16rem}
   .tile .go{font-size:.82rem}
-  .t-fol h3{font-size:2rem}
-  .t-give h3{font-size:1.4rem}
+  .t-give{min-height:0}
   .sec{padding-block:44px}
 }
 @media (max-width:374px){
-  .bento{grid-template-columns:minmax(0,1fr)}
-  .t-wide{grid-column:auto}
+  .cards{grid-template-columns:minmax(0,1fr)}
   .tile{min-height:0}
-  .tile h3{font-size:1.4rem}
-  .t-fol h3{font-size:2.2rem}
-  .t-give h3{font-size:1.7rem}
+  .tile h3{font-size:1.3rem}
   .t-fol{min-height:0}
   .hero h1{font-size:2.35rem}
   .day{grid-template-columns:52px minmax(0,1fr);gap:10px}
@@ -311,93 +326,105 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
         <h2>Take the next step</h2>
       </div>
 
-      <div class="bento">
-        <a class="tile t-fol" data-link="fol" href="#">
-          <div>
-            <span class="k">FOL</span>
-            <h3>Festival<br>of Life</h3>
-            <div class="grace">Extravagant Grace</div>
-            <p>Get ready to experience Extravagant Grace.</p>
-          </div>
-          <span class="go">Learn more <svg><use href="#arrow"/></svg></span>
-        </a>
-
+      <div class="groups">
         <a class="tile t-red t-give" data-link="give" href="#" id="give">
           <img class="wave-deco" src="img/gccc-mark.png" alt="" aria-hidden="true">
           <div>
-            <span class="k">Give With Purpose</span>
+            <span class="k">Give with purpose</span>
             <h3>Sow into something great</h3>
           </div>
           <span class="go">Give an offering <svg><use href="#arrow"/></svg></span>
         </a>
 
-        <a class="tile t-paper" data-link="spotify" href="#">
-          <div>
-            <span class="k">Faith, On Repeat</span>
-            <h3>Take the Word with you</h3>
-          </div>
-          <span class="go">Listen on Spotify <svg><use href="#arrow"/></svg></span>
-        </a>
+        <div class="pair">
+          <section class="grp" aria-labelledby="g-grow">
+            <h3 class="grp-head" id="g-grow">Grow</h3>
+            <div class="cards">
+              <a class="tile t-ink" data-link="believers" href="#">
+                <div>
+                  <span class="k">Foundations</span>
+                  <h3>Believers’ Class</h3>
+                  <p>Build your faith foundation.</p>
+                </div>
+                <span class="go">Join the class <svg><use href="#arrow"/></svg></span>
+              </a>
+              <a class="tile t-paper" data-link="gloryHomes" href="#">
+                <div>
+                  <span class="k">Community</span>
+                  <h3>Glory Homes</h3>
+                  <p>Near you, Saturdays at 5:00pm.</p>
+                </div>
+                <span class="go">Find a home <svg><use href="#arrow"/></svg></span>
+              </a>
+              <a class="tile t-blue full" data-link="teens" href="#">
+                <div>
+                  <span class="k">Teens ministry</span>
+                  <h3>Glory Realms Teens Church</h3>
+                  <p>A place for young people to grow into all God has called them to be.</p>
+                </div>
+                <span class="go">Explore Teens Church <svg><use href="#arrow"/></svg></span>
+              </a>
+            </div>
+          </section>
 
-        <a class="tile t-blue" data-link="youtube" href="#">
-          <div>
-            <span class="k">There’s More to Watch</span>
-            <h3>Relive our services</h3>
-          </div>
-          <span class="go">Watch on YouTube <svg><use href="#arrow"/></svg></span>
-        </a>
+          <section class="grp" aria-labelledby="g-watch">
+            <h3 class="grp-head" id="g-watch">Watch &amp; listen</h3>
+            <div class="cards">
+              <a class="tile t-paper" data-link="youtube" href="#">
+                <div>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="7.5" width="9" height="9" fill="#fff"/><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <h3>Relive our services</h3>
+                </div>
+                <span class="go">YouTube <svg><use href="#arrow"/></svg></span>
+              </a>
+              <a class="tile t-ink" data-link="spotify" href="#">
+                <div>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1ED760" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                  <h3>Take the Word with you</h3>
+                </div>
+                <span class="go">Spotify <svg><use href="#arrow"/></svg></span>
+              </a>
+              <a class="tile t-yellow tile-row full" href="#follow">
+                <div>
+                  <span class="k">Social</span>
+                  <h3>Follow us online</h3>
+                  <p>YouTube, Instagram, Facebook, Mixlr and Spotify.</p>
+                </div>
+                <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg>
+              </a>
+            </div>
+          </section>
+        </div>
 
-        <a class="tile t-ink" data-link="believers" href="#">
-          <div>
-            <span class="k">There’s More to Grow</span>
-            <h3>Believers’ Class</h3>
-            <p>Want to build your faith foundation?</p>
+        <section class="grp" aria-labelledby="g-prog">
+          <h3 class="grp-head" id="g-prog">Special Programmes</h3>
+          <div class="cards cards-3">
+            <a class="tile t-fol" data-link="fol" href="#">
+              <div>
+                <span class="k">Festival</span>
+                <h3>Festival of Life</h3>
+                <div class="grace">Extravagant Grace</div>
+                <p>Get ready to experience Extravagant Grace.</p>
+              </div>
+              <span class="go">Learn more <svg><use href="#arrow"/></svg></span>
+            </a>
+            <a class="tile t-aaac" data-link="aaac" href="#">
+              <div>
+                <span class="k">Congress</span>
+                <h3>AAAC</h3>
+                <p>All African Apostolic Congress. Something worth looking forward to.</p>
+              </div>
+              <span class="go">Learn more <svg><use href="#arrow"/></svg></span>
+            </a>
           </div>
-          <span class="go">Join Believers’ Class <svg><use href="#arrow"/></svg></span>
-        </a>
+        </section>
 
-        <a class="tile t-yellow" href="#follow">
+        <a class="tile t-blue tile-row t-grm" data-link="grm" href="#">
           <div>
-            <span class="k">Stay in the Loop</span>
-            <h3>Be part of the conversation</h3>
+            <span class="k">Our ministry family</span>
+            <h3>Explore Glory Realms Ministries</h3>
           </div>
-          <span class="go">Follow us on social media <svg><use href="#arrow"/></svg></span>
-        </a>
-
-        <a class="tile t-paper" data-link="gloryHomes" href="#">
-          <div>
-            <span class="k">Find Your Community</span>
-            <h3>Glory Homes</h3>
-            <p>Fellowship near where you live, Saturdays at 5:00pm.</p>
-          </div>
-          <span class="go">Find a Glory Home <svg><use href="#arrow"/></svg></span>
-        </a>
-
-        <a class="tile t-red" data-link="grm" href="#">
-          <div>
-            <span class="k">Glory Realms Ministries</span>
-            <h3>Explore GRM</h3>
-            <p>Discover the wider ministry family GCCC is part of.</p>
-          </div>
-          <span class="go">Visit the GRM website <svg><use href="#arrow"/></svg></span>
-        </a>
-
-        <a class="tile t-blue t-wide-lg" data-link="teens" href="#">
-          <div>
-            <span class="k">Glory Realms Teens Ministry</span>
-            <h3>Teens Church</h3>
-            <p>A place for young people to grow into all God has called them to be.</p>
-          </div>
-          <span class="go">Explore Teens Church <svg><use href="#arrow"/></svg></span>
-        </a>
-
-        <a class="tile t-aaac t-wide-lg" data-link="aaac" href="#">
-          <div>
-            <span class="k">All African Apostolic Congress</span>
-            <h3>AAAC</h3>
-            <p>Something worth looking forward to.</p>
-          </div>
-          <span class="go">Learn more about AAAC <svg><use href="#arrow"/></svg></span>
+          <span class="go-wrap"><span class="go-txt">Visit the GRM website</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
         </a>
       </div>
     </div>

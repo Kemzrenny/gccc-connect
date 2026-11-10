@@ -2,7 +2,7 @@
 
 One-page link hub for **Glory Centre Community Church, Ojodu**: the page behind the QR codes on chair stickers and first-timer cards.
 
-Sections: welcome hero with a gathering badge that alternates every 5 seconds between today's gatherings and the next one (Lagos time), the ten next-step cards, weekly meetings, PZak's welcome and first-timer playlists, and social links.
+Sections: welcome hero with a gathering badge that alternates every 5 seconds between today's gatherings and the next one (Lagos time), the next-step cards, grouped as Give, Grow, Watch & listen, Special Programmes and Explore GRM, weekly meetings, PZak's welcome and first-timer playlists, and social links.
 
 ## Editing links
 
@@ -10,10 +10,10 @@ All links live in the `LINKS` object near the bottom of `index.html`. Empty valu
 
 | Key | Card |
 | --- | --- |
-| `spotify` | Faith, On Repeat |
-| `youtube` | There's More to Watch, YouTube pill |
+| `spotify` | Take the Word with you (Watch & listen), Spotify pill |
+| `youtube` | Relive our services (Watch & listen), YouTube pill |
 | `instagram`, `facebook`, `mixlr` | Social pills |
-| `give` | Give With Purpose, mobile Give button |
+| `give` | Give card, mobile Give button |
 | `fol` | Festival of Life |
 | `believers` | Believers' Class |
 | `teens` | Glory Realms Teens Church |
