@@ -58,7 +58,11 @@ p{margin:0}
 .logo-loc{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--yellow);padding-left:2px}
 .logo-text{font-weight:700;font-size:.66rem;line-height:1.08;letter-spacing:.02em;text-transform:uppercase}
 .logo-text b{display:block;font-size:1.05rem;letter-spacing:.04em;margin-top:2px}
-.live{justify-self:start;font-size:.78rem!important;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;padding:7px 12px;border:1px solid var(--line-on-ink);border-radius:999px;color:var(--muted-on-ink);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.live{justify-self:start;font-size:.78rem!important;white-space:normal!important;line-height:1.4;border-radius:18px!important;text-align:left;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;padding:7px 12px;border:1px solid var(--line-on-ink);border-radius:999px;color:var(--muted-on-ink);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+#live-text{display:inline-block;transition:opacity .3s ease,transform .3s ease;overflow:hidden;text-overflow:ellipsis}
+#live-text.out{opacity:0;transform:translateY(6px)}
+#live-text b{color:var(--yellow);font-weight:700;margin-right:2px}
+.live.now #live-text b{color:#ff6b62}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex:none}
 .live.now i{background:var(--red);box-shadow:0 0 0 0 rgba(226,35,26,.7);animation:pulse 1.8s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(226,35,26,0)}100%{box-shadow:0 0 0 0 rgba(226,35,26,0)}}
@@ -101,7 +105,7 @@ p{margin:0}
 .bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:180px;padding:18px;text-decoration:none;border-radius:6px;overflow:hidden;transition:transform .18s ease}
 .tile:hover{transform:translateY(-3px)}
-.tile .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.tile .k{display:block;line-height:1.35;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
 .tile h3{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.05;letter-spacing:0;word-spacing:.05em;margin-top:8px}
 .tile p{font-size:.9rem;margin-top:8px;opacity:.92;max-width:28ch}
 .tile .go{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:.88rem;padding-top:12px;border-top:1px solid color-mix(in srgb,currentColor 24%,transparent)}
@@ -227,7 +231,7 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 [data-pending="true"]{cursor:default}
 
 /* ---------- Small phones ---------- */
-.t-fol .k{display:block;padding-right:64px}
+.t-fol .k{display:block}
 .t-fol .grace{font-size:clamp(1.5rem,6.5vw,2rem)}
 @media (max-width:419px){
   .tile{padding:16px 14px;min-height:160px;gap:18px}
@@ -309,14 +313,13 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 
       <div class="bento">
         <a class="tile t-fol" data-link="fol" href="#">
-          <span class="tag">FOL’26</span>
           <div>
-            <span class="k">Festival of Life 2026</span>
+            <span class="k">FOL</span>
             <h3>Festival<br>of Life</h3>
             <div class="grace">Extravagant Grace</div>
             <p>Get ready to experience Extravagant Grace.</p>
           </div>
-          <span class="go">Register for FOL’26 <svg><use href="#arrow"/></svg></span>
+          <span class="go">Learn more <svg><use href="#arrow"/></svg></span>
         </a>
 
         <a class="tile t-red t-give" data-link="give" href="#" id="give">
@@ -361,6 +364,24 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
           <span class="go">Follow us on social media <svg><use href="#arrow"/></svg></span>
         </a>
 
+        <a class="tile t-paper" data-link="gloryHomes" href="#">
+          <div>
+            <span class="k">Find Your Community</span>
+            <h3>Glory Homes</h3>
+            <p>Fellowship near where you live, Saturdays at 5:00pm.</p>
+          </div>
+          <span class="go">Find a Glory Home <svg><use href="#arrow"/></svg></span>
+        </a>
+
+        <a class="tile t-red" data-link="grm" href="#">
+          <div>
+            <span class="k">Glory Realms Ministries</span>
+            <h3>Explore GRM</h3>
+            <p>Discover the wider ministry family GCCC is part of.</p>
+          </div>
+          <span class="go">Visit the GRM website <svg><use href="#arrow"/></svg></span>
+        </a>
+
         <a class="tile t-blue t-wide-lg t-wide" data-link="teens" href="#">
           <div>
             <span class="k">Glory Realms Teens Ministry</span>
@@ -373,10 +394,10 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
         <a class="tile t-aaac t-wide-lg t-wide" data-link="aaac" href="#">
           <div>
             <span class="k">All African Apostolic Congress</span>
-            <h3>AAAC <span>2027</span></h3>
+            <h3>AAAC</h3>
             <p>Something worth looking forward to.</p>
           </div>
-          <span class="go">Learn more about AAAC 2027 <svg><use href="#arrow"/></svg></span>
+          <span class="go">Learn more about AAAC <svg><use href="#arrow"/></svg></span>
         </a>
       </div>
     </div>
@@ -505,6 +526,8 @@ const LINKS = {
   believers: "",
   teens: "",
   aaac: "",
+  gloryHomes: "",
+  grm: "https://gloryrealmsministries.org/",
   welcomeForm: "",
   messages: "https://youtube.com/playlist?list=PLfbFH1kRhJ78&si=4dPbwilxp3kCo5V8",
   worship: "https://www.youtube.com/playlist?list=PLIuqV6f8WAPw"
@@ -558,24 +581,49 @@ order.forEach(d => {
   list.appendChild(row);
 });
 
-/* Next / live gathering pill */
+/* Gathering badge: alternates between today and the next gathering every 5 seconds */
 (function () {
   const toMin = hm => { const [h, m] = hm.split(":").map(Number); return h * 60 + m; };
-  let best = null;
-  for (let off = 0; off < 8 && !best; off++) {
-    const d = (now.day + off) % 7;
-    const evs = SCHEDULE.filter(s => s.days.includes(d)).sort((a, b) => a.start.localeCompare(b.start));
-    for (const e of evs) {
-      const s = toMin(e.start);
-      if (off === 0 && now.mins >= s && now.mins < s + e.mins) { best = { e, live: true }; break; }
-      if (off > 0 || s > now.mins) { best = { e, off, d }; break; }
-    }
-  }
-  if (!best) return;
+  const shortName = n => n.replace("Glory Realms ", "");
+  const dayEvents = d => SCHEDULE.filter(s => s.days.includes(d)).sort((a, b) => a.start.localeCompare(b.start));
   const pill = document.getElementById("live"), txt = document.getElementById("live-text");
-  if (best.live) { pill.classList.add("now"); txt.textContent = "Happening now · " + best.e.name; return; }
-  const when = best.off === 0 ? "Today" : best.off === 1 ? "Tomorrow" : DAYNAMES[best.d];
-  txt.textContent = "Next: " + best.e.name.replace("Glory Realms ", "") + " · " + when + " " + fmt(best.e.start);
+  if (!pill || !txt) return;
+
+  function slides() {
+    const t = lagosNow(), out = [];
+    const today = dayEvents(t.day);
+    const live = today.find(e => t.mins >= toMin(e.start) && t.mins < toMin(e.start) + e.mins);
+    if (live) out.push({ live: true, label: "Happening now", text: shortName(live.name) });
+    else if (today.length) out.push({ label: "Today", text: today.map(e => shortName(e.name) + " " + fmt(e.start)).join(" & ") });
+    else out.push({ label: "Today", text: "No gathering. Rest & reflect" });
+    for (let off = 1; off < 8; off++) {
+      const d = (t.day + off) % 7, evs = dayEvents(d);
+      if (evs.length) {
+        const when = off === 1 ? "Tomorrow" : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][d];
+        out.push({ label: "Next", text: shortName(evs[0].name) + " · " + when + " " + fmt(evs[0].start) });
+        break;
+      }
+    }
+    return out;
+  }
+
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0;
+  function render(sl) {
+    pill.classList.toggle("now", !!sl.live);
+    txt.innerHTML = "";
+    const b = document.createElement("b"); b.textContent = sl.label;
+    txt.append(b, " " + sl.text);
+  }
+  function tick(first) {
+    const list = slides(); if (!list.length) return;
+    const sl = list[i % list.length]; i++;
+    if (first || reduce) { render(sl); return; }
+    txt.classList.add("out");
+    setTimeout(() => { render(sl); txt.classList.remove("out"); }, 320);
+  }
+  tick(true);
+  setInterval(tick, 5000);
 })();
 
 /* Show the bottom bar only once the hero buttons have scrolled away */
