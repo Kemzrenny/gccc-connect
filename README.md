@@ -17,9 +17,10 @@ All links live in the `LINKS` object near the bottom of `index.html`. Empty valu
 | `fol` | Festival of Life |
 | `believers` | Believers' Class |
 | `teens` | Glory Realms Teens Church |
+| `children` | GCCC Children's Ministry |
 | `aaac` | AAAC |
 | `gloryHomes` | Glory Homes |
-| `grm` | Explore GRM (set to gloryrealmsministries.org) |
+| `grm` | Glory Realms Ministries card, header link and footer link (set to gloryrealmsministries.org) |
 | `welcomeForm` | First-timer welcome card |
 | `messages`, `worship` | First-timer playlists |
 

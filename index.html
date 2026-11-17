@@ -110,6 +110,7 @@ p{margin:0}
 .grp-head::after{content:"";flex:1;height:1px;background:var(--line-on-ink)}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .full{grid-column:1 / -1}
+@media (max-width:819px){.m-full{grid-column:1 / -1;min-height:0}}
 .tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:180px;padding:18px;text-decoration:none;border-radius:6px;overflow:hidden;transition:transform .18s ease}
 .tile:hover{transform:translateY(-3px)}
 .tile .k{display:block;line-height:1.35;font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
@@ -123,6 +124,9 @@ p{margin:0}
 .tile-row .arrow{width:22px;height:22px}
 .tile-row .go-txt{display:none}
 .t-red{background:var(--red);color:var(--white)}
+.t-grm{background:linear-gradient(120deg,rgba(24,92,196,.97) 0%,rgba(31,111,224,.88) 55%,rgba(31,111,224,.55) 100%),url(img/fellowship.webp) 60% 30%/cover no-repeat;color:var(--white);min-height:200px}
+.tile.t-grm h3{font-size:clamp(1.6rem,7vw,2.4rem)}
+.t-grm p{max-width:42ch}
 .t-blue{background:var(--blue);color:var(--white)}
 .t-paper{background:var(--paper);color:var(--ink)}
 .t-yellow{background:var(--yellow);color:var(--ink)}
@@ -153,7 +157,9 @@ p{margin:0}
   .tile.t-give h3{font-size:2.4rem}
   .tile.t-fol h3{font-size:3.2rem}
   .tile-row .go-txt{display:inline}
-  .t-grm .go-wrap{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;flex:none}
+  .tile.t-grm{flex-direction:row;align-items:flex-end;justify-content:space-between;min-height:220px;padding:30px 28px}
+  .tile.t-grm h3{font-size:2.4rem}
+  .t-grm .go{border:1px solid rgba(255,255,255,.55);border-radius:4px;padding:12px 18px;flex:none;font-size:.95rem}
 }
 
 /* ---------- Weekly rhythm ---------- */
@@ -237,7 +243,11 @@ p{margin:0}
 /* ---------- Footer ---------- */
 footer{border-top:1px solid var(--line-on-ink);padding-block:28px 110px}
 footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
-footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
+.foot-link{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-block:6px}
+.foot-link svg{width:16px;height:16px}
+.parent-link{display:inline-flex;align-items:center;gap:6px;min-height:36px;box-sizing:border-box;padding:7px 12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(20,20,22,.4);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--white);text-decoration:none;font-size:.74rem;font-weight:500;white-space:nowrap}
+.parent-link svg{width:14px;height:14px;flex:none}
+.parent-link:hover{border-color:var(--white)}
 @media (min-width:820px){footer{padding-block:28px 40px}}
 
 /* ---------- Sticky mobile dock ---------- */
@@ -293,6 +303,7 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
       <img src="img/gccc-logo.png" alt="Glory Centre Community Church" width="640" height="158">
       <span class="logo-loc">Ojodu</span>
     </a>
+    <a class="parent-link" data-link="grm" href="#">Glory Realms Ministries <svg aria-hidden="true"><use href="#arrow"/></svg></a>
   </div>
 </header>
 
@@ -307,7 +318,6 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
         </div>
         <div class="hero-copy">
           <p><strong>Your experience with God doesn’t end here.</strong> There’s so much more to explore, experience and be a part of.</p>
-          <p>Take the next step, find your community, grow in faith, and stay connected with us.</p>
           <div class="paths">
             <a class="btn btn-blue" href="#new">First time here? <svg><use href="#arrow"/></svg></a>
             <a class="btn btn-ghost" href="#steps">See what’s next</a>
@@ -356,13 +366,21 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
                 </div>
                 <span class="go">Find a home <svg><use href="#arrow"/></svg></span>
               </a>
-              <a class="tile t-blue full" data-link="teens" href="#">
+              <a class="tile t-blue m-full" data-link="teens" href="#">
                 <div>
                   <span class="k">Teens ministry</span>
                   <h3>Glory Realms Teens Church</h3>
                   <p>A place for young people to grow into all God has called them to be.</p>
                 </div>
                 <span class="go">Explore Teens Church <svg><use href="#arrow"/></svg></span>
+              </a>
+              <a class="tile t-ink m-full" data-link="children" href="#">
+                <div>
+                  <span class="k">Children’s ministry</span>
+                  <h3>GCCC Children’s Ministry</h3>
+                  <p>A place for children to know God and build their faith.</p>
+                </div>
+                <span class="go">Explore Children’s Church <svg><use href="#arrow"/></svg></span>
               </a>
             </div>
           </section>
@@ -419,12 +437,13 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
           </div>
         </section>
 
-        <a class="tile t-blue tile-row t-grm" data-link="grm" href="#">
+        <a class="tile t-grm" data-link="grm" href="#">
           <div>
-            <span class="k">Our ministry family</span>
-            <h3>Explore Glory Realms Ministries</h3>
+            <span class="k">Our parent ministry</span>
+            <h3>Glory Realms Ministries</h3>
+            <p>GCCC is part of the Glory Realms Ministries family. Discover the wider ministry we belong to.</p>
           </div>
-          <span class="go-wrap"><span class="go-txt">Visit the GRM website</span><svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+          <span class="go">Visit the GRM website <svg><use href="#arrow"/></svg></span>
         </a>
       </div>
     </div>
@@ -461,8 +480,8 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
           </div>
           <h3 id="pzak-h">Welcome to Glory Centre Community Church</h3>
           <p>Being here is more than just attending a service; it’s an opportunity to encounter God, grow in His Word, and connect with a family of people who are on this journey of faith together.</p>
-          <p>At GCCC, we believe that God has something special in store for you, and we are delighted to have you be a part of what He is doing in our midst.</p>
-          <p>We are glad you’re here, and we look forward to getting to know you better.</p>
+          <p>At GCCC, I believe that God has something special in store for you, and I am delighted to have you be a part of what He is doing in our midst.</p>
+          <p>I am glad you’re here, and I look forward to getting to know you better.</p>
           <p style="margin-bottom:0">God bless you!</p>
           <div class="sig">PZak</div>
         </article>
@@ -479,7 +498,6 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
 
       <div class="plays-head">
         <h3>Playlists for first timers</h3>
-        <span>Curated on YouTube</span>
       </div>
       <div class="plays">
         <a class="play p-msg" data-link="messages" href="#">
@@ -530,7 +548,7 @@ footer p{font-family:var(--mono);font-size:.78rem;color:var(--muted-on-ink)}
       <img src="img/gccc-logo.png" alt="Glory Centre Community Church" width="640" height="158">
       <span class="logo-loc">Ojodu</span>
     </a>
-    <p>Glory Realms Ministries</p>
+    <a class="foot-link" data-link="grm" href="#">Part of Glory Realms Ministries <svg aria-hidden="true"><use href="#arrow"/></svg></a>
   </div>
 </footer>
 
@@ -551,6 +569,7 @@ const LINKS = {
   fol: "",
   believers: "",
   teens: "",
+  children: "",
   aaac: "",
   gloryHomes: "",
   grm: "https://gloryrealmsministries.org/",
